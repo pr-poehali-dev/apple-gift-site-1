@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
 import { ArrowRight, Copy, ExternalLink, Sparkles } from "lucide-react";
 
 type StyleOption = {
@@ -79,7 +78,7 @@ const StyleTest = () => {
         {/* Интро секция */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-3xl text-center">
-            <h1 className="apple-heading mb-8">Каким будет ваш сайт?</h1>
+            <h1 className="text-4xl font-bold mb-8">Каким будет ваш сайт?</h1>
             <p className="text-xl text-gray-600 mb-12">
               Мы верим, что в каждом дизайне должно быть что-то особенное. 
               Наш креативный тест поможет определить визуальный стиль вашего будущего сайта 
@@ -101,13 +100,10 @@ const StyleTest = () => {
           <div className="container mx-auto max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {styleOptions.map((option, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="h-full"
+                  className="h-full transform transition-all duration-300 hover:-translate-y-1 opacity-100 animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <Card 
                     className={`p-6 h-full cursor-pointer hover:shadow-md transition-all border-2 ${selectedStyle === option ? 'border-black' : 'border-transparent'}`} 
@@ -119,7 +115,7 @@ const StyleTest = () => {
                       <span>{option.ending}</span>
                     </div>
                   </Card>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -129,11 +125,7 @@ const StyleTest = () => {
         {selectedStyle && (
           <section id="result" className="py-20 px-6 scroll-mt-20">
             <div className="container mx-auto max-w-3xl">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6 }}
-              >
+              <div className="animate-fade-in transition-opacity duration-500">
                 <Card className="p-10 border-0 shadow-lg rounded-3xl overflow-hidden">
                   <div className={`absolute top-0 left-0 w-full h-2 ${selectedStyle.color}`} />
                   <div className="mb-8">
@@ -174,7 +166,7 @@ const StyleTest = () => {
                     </Button>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             </div>
           </section>
         )}
