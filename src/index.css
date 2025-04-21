@@ -96,6 +96,24 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-[system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif] antialiased;
+  }
+}
+
+@layer components {
+  .apple-card {
+    @apply cursor-pointer bg-gradient-to-br from-gray-100 to-gray-50 shadow-sm hover:shadow-md transition-all duration-300 rounded-xl overflow-hidden border border-gray-100;
+  }
+
+  .apple-heading {
+    @apply font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight;
+  }
+
+  .apple-subheading {
+    @apply text-xl sm:text-2xl text-gray-500 mt-3 max-w-2xl mx-auto;
+  }
+  
+  .nav-link {
+    @apply text-sm font-medium text-gray-500 hover:text-black transition-colors;
   }
 }
