@@ -20,6 +20,9 @@ const Navbar = () => {
           <Link to="/guide" className={`nav-link ${location.pathname === '/guide' ? 'text-black' : ''}`}>
             Инструкция
           </Link>
+          <Link to="/style-test" className={`nav-link ${location.pathname === '/style-test' ? 'text-black' : ''}`}>
+            Тест стиля
+          </Link>
         </nav>
         
         <div className="md:hidden">
